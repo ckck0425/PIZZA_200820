@@ -7,6 +7,8 @@ import kr.co.tjoeun.pizza_200820.Adapters.MainViewPagerAdapter
 
 class MainActivity : BaseActivity() {
 
+    lateinit var mvpa : MainViewPagerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,10 +19,10 @@ class MainActivity : BaseActivity() {
     override fun setValues() {
 
         mvpa = MainViewPagerAdapter(supportFragmentManager)
-        viewPager.adapter = mvpa
+        mainViewPager.adapter = mvpa
 
         // 탭 레이아웃 + 뷰 페이저 연결
-        myTabLayout.setupWithViewPager(viewPager)
+        maintaplayout.setupWithViewPager(mainViewPager)
     }
 
     override fun setupEvents() {
