@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TableLayout
+        android:id="@+id/maintaplayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/black"/>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/mainViewPager"
         android:layout_width="match_parent"

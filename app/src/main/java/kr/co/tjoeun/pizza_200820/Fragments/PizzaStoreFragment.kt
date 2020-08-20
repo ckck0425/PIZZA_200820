@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kr.co.tjoeun.pizza_200820.R
 
-class PizzaOrder : Fragment() {
+class PizzaStoreFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(R.layout.fragment_pizza_store, container, false)
+        return inflater.inflate(R.layout.fragment_pizza_store, container, false)
 
     }
 
