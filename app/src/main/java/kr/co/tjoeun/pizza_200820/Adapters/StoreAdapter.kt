@@ -1,5 +1,6 @@
 package kr.co.tjoeun.pizza_200820.Adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,11 @@ import kr.co.tjoeun.pizza_200820.R
 
 class StoreAdapter (
 
-    val mContext : context,
+    val mContext : Context,
     val resId : Int,
     val mList : List<Store>
 
-) : ArrayAdapter<store>(mContext, resId, mList) {
+) : ArrayAdapter<Store>(mContext, resId, mList) {
 
     val inf = LayoutInflater.from(mContext)
 
