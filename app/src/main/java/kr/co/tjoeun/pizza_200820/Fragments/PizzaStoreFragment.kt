@@ -1,9 +1,11 @@
 package kr.co.tjoeun.pizza_200820.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_pizza_store.*
 import kr.co.tjoeun.pizza_200820.Adapters.StoreAdapter
@@ -39,6 +41,14 @@ class PizzaStoreFragment : Fragment() {
                 mPizzaStoreAdapter = StoreAdapter(context!!, R.layout.store_list_item, mPizzaStoreList)
 
                 pizzastoreListView.adapter = mPizzaStoreAdapter
+
+        pizzastoreListView.setOnItemClickListener{AdapterView, view, position, 1 ->
+           val clickedStore = mPizzaStoreList[position]
+            val myintent = Intent(context, ViewStoreDetailActivity::class.java)
+            myintent.putExtra("storeInfo", clickedStore)
+            startActivity(myintent)
+
+        }
 
     }
 
