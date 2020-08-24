@@ -1,7 +1,11 @@
 package kr.co.tjoeun.pizza_200820.Fragments
 
+import android.Manifest
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_view_store_detail.*
 import kotlinx.android.synthetic.main.activity_view_store_detail.logoImg
@@ -24,6 +28,33 @@ class ViewStoreDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        callBtn.setOnClickListener {
+
+            val permissionListener = object : PermissionListener {
+                override fun onPermissionGranted() {
+
+                    val myUri = Uri.parse("tel:${mStore.phoneNum}")
+                    val myIntent = Intent(Intent.ACTION_CALL, myUri)
+                    startActivity(myIntent)
+
+                }
+
+                override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
+                    Toast.makeText(mContext, "전화 연결 권한이 거부되었습니다.", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+            TedPermission.with(mContext)
+                .setPermissionListener(permissionListener)
+                .setDeniedMessage("[설정] 에서 권한을 열어줘야 전화 연결이 가능합니다.")
+                .setPermissions(Manifest.permission.CALL_PHONE)
+                .check()
+
+        }
+
+
+
     }
 
     override fun setValues() {
@@ -32,6 +63,6 @@ class ViewStoreDetailActivity : BaseActivity() {
         nameTxt.text = mstore.name
         phonenumbTxt.text = mstore.phonenumb
 
-        Glid.with(mContext).load(mstore.logoUrl).into(logoImg)
+        Glide.with(mContext).load(mstore.logoUrl).into(logoImg)
     }
 }
