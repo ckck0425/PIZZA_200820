@@ -1,4 +1,4 @@
-package kr.co.tjoeun.pizza_200820.Fragments
+package kr.co.tjoeun.pizza_200820
 
 import android.Manifest
 import android.content.Intent

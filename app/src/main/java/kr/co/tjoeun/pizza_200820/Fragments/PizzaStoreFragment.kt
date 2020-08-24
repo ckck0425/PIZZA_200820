@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_pizza_store.*
 import kr.co.tjoeun.pizza_200820.Adapters.StoreAdapter
 import kr.co.tjoeun.pizza_200820.Datas.Store
 import kr.co.tjoeun.pizza_200820.R
+import kr.co.tjoeun.pizza_200820.ViewStoreDetailActivity
 
 class PizzaStoreFragment : Fragment() {
 
