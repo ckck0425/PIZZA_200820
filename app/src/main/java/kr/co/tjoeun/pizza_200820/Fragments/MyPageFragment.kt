@@ -1,5 +1,6 @@
 package kr.co.tjoeun.pizza_200820.Fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,6 +34,15 @@ class MyPageFragment:Fragment() {
             val myIntent = Intent(context!!, EditNicknameActivity::class.java)
             startActivityForResult(myIntent, REQ_FOR_NICKNAME)
 
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQ_FOR_NICKNAME) {
+            if (resultCode == Activity.RESULT_OK) {
+                myNicknameTxt.text = data!!.getStringExtra("nick")
+            }
         }
     }
 
